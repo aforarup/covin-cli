@@ -1,5 +1,5 @@
 {
-	"name": "covid-cli",
+	"name": "covin-cli",
 	"version": "0.1.0",
 	"description": "Track the Coronavirus disease (COVID-19) in India.",
 	"license": "MIT",
@@ -14,16 +14,16 @@
 		"node": ">=12.x"
 	},
 	"bin": {
-		"corona": "index.js",
-		"corona-cli": "index.js"
+		"covin-cli": "index.js",
+		"covin": "index.js"
 	},
 	"files": [
 		"index.js",
 		"utils/*"
 	],
 	"keywords": [
-		"covid-cli",
-		"Covid India",
+		"covin-cli",
+		"Covin India",
 		"Arup Saha",
 		"Arup",
 		"aforarup",
