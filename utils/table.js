@@ -5,47 +5,27 @@ const yellow = chalk.yellow;
 const dim = chalk.dim;
 
 module.exports = {
-	single: [
+	head: [
 		`#`,
-		`Country`,
-		`Cases`,
-		`Cases ${dim(`(today)`)}`,
-		`Deaths`,
-		`Deaths ${dim(`(today)`)}`,
-		`Recovered`,
-		`Active`,
-		`Critical`,
-		`Per Million`
-	],
-	colored: [
-		`#`,
-		`Country`,
+		`State`,
 		`Cases`,
 		`Cases ${dim(`(today)`)}`,
 		`${red(`Deaths`)}`,
 		`${red(`Deaths (today)`)}`,
 		`${green(`Recovered`)}`,
-		`${yellow(`Active`)}`,
-		`${red(`Critical`)}`,
-		`Per Million`
-	],
-	singleStates: [
-		`#`,
-		`State`,
-		`Cases`,
-		`Cases ${dim(`(today)`)}`,
-		`Deaths`,
-		`Deaths ${dim(`(today)`)}`,
-		`Active`
-	],
-	coloredStates: [
-		`#`,
-		`State`,
-		`Cases`,
-		`Cases ${dim(`(today)`)}`,
-		`${red(`Deaths`)}`,
-		`${red(`Deaths (today)`)}`,
 		`${yellow(`Active`)}`
+	],
+	headTests: [
+		`#`,
+		`Updated Till`,
+		`Samples Tested`,
+		`Individual Tested`,
+		`${red(`Positive Cases`)}`
+	],
+	headDistricts: [
+		`#`,
+		`District`,
+		`Confirmed Cases`
 	],
 	style: { head: ['cyan'] },
 	borderless: {
@@ -67,7 +47,7 @@ module.exports = {
 	},
 	sortingKeys: {
 		country: 'country',
-		cases: 'cases',
+		cases: 'confirmed',
 		'cases-today': 'todayCases',
 		deaths: 'deaths',
 		'deaths-today': 'todayDeaths',

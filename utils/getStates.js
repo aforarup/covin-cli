@@ -1,44 +1,76 @@
 const axios = require('axios');
 const chalk = require('chalk');
 const cyan = chalk.cyan;
+const yellow = chalk.yellow;
+const red = chalk.red;
+const green = chalk.green;
+const blue = chalk.blue;
 const dim = chalk.dim;
 const comma = require('comma-number');
-const { sortingStateKeys } = require('./table.js');
+const { sortingKeys } = require('./table.js');
 const to = require('await-to-js').default;
 const handleError = require('cli-handle-error');
 const orderBy = require('lodash.orderby');
+const getWorldwide = require('./getWorldwide.js');
 
-module.exports = async (spinner, table, states, { sortBy, limit, reverse }) => {
-	if (states) {
+module.exports = async (
+	spinner,
+	table,
+	tests,
+	stateName,
+	{ sortBy, limit, reverse }
+) => {
+	if (!tests) {
 		const [err, response] = await to(
-			axios.get(`https://corona.lmao.ninja/states`)
+			axios.get(`https://api.covid19india.org/data.json`)
 		);
 		handleError(`API is down, try again later.`, err, false);
-		let allStates = response.data;
+		let allStates = response.data.statewise;
+		if(!stateName) {
 
-		// Limit.
-		allStates = allStates.slice(0, limit);
 
-		// Sort & reverse.
-		const direction = reverse ? 'asc' : 'desc';
-		allStates = orderBy(allStates, [sortingStateKeys[sortBy]], [direction]);
 
-		// Push selected data.
-		allStates.map((oneState, count) => {
+			let countrystats = allStates[0]
+
+			// Limit.
+			await getWorldwide(table)
+			allStates = allStates.slice(1, limit);
+
+			
+			// Push selected data.
+			allStates.map((oneState, count) => {
+				table.push([
+					count + 1,
+					oneState.state,
+					comma(oneState.confirmed),
+					comma(oneState.delta.confirmed),
+					comma(oneState.deaths),
+					comma(oneState.delta.deaths),
+					comma(oneState.recovered),
+					comma(oneState.active)
+				]);
+			});
+
+
+			// Push country overall data.
 			table.push([
-				count + 1,
-				oneState.state,
-				comma(oneState.cases),
-				comma(oneState.todayCases),
-				comma(oneState.deaths),
-				comma(oneState.todayDeaths),
-				comma(oneState.active)
+				blue('-'),
+				blue(countrystats.state),
+					blue(comma(countrystats.confirmed)),
+					blue(comma(countrystats.delta.confirmed)),
+					red(comma(countrystats.deaths)),
+					red(comma(countrystats.delta.deaths)),
+					green(comma(countrystats.recovered)),
+					yellow(comma(countrystats.active))
 			]);
-		});
 
-		spinner.stopAndPersist();
-		const isRev = reverse ? `${dim(` & `)}${cyan(`Order`)}: reversed` : ``;
-		spinner.info(`${cyan(`Sorted by:`)} ${sortBy}${isRev}`);
-		console.log(table.toString());
+			
+
+			spinner.stopAndPersist();
+			// const isRev = reverse ? `${dim(` & `)}${cyan(`Order`)}: reversed` : ``;
+			// spinner.info(`${cyan(`Sorted by:`)} ${sortBy}${isRev}`);
+			console.log(table.toString());
+		}
+		return allStates;
 	}
 };

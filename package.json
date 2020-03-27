@@ -1,13 +1,13 @@
 {
-	"name": "corona-cli",
-	"version": "3.8.4",
-	"description": "Track the Coronavirus disease (COVID-19).",
+	"name": "covid-cli",
+	"version": "0.1.0",
+	"description": "Track the Coronavirus disease (COVID-19) in India.",
 	"license": "MIT",
-	"repository": "ahmadawais/corona-cli",
+	"repository": "aforarup/covid-cli",
 	"author": {
-		"name": "Ahmad Awais",
-		"email": "me@AhmadAwais.com",
-		"url": "https://twitter.com/MrAhmadAwais"
+		"name": "Arup Saha",
+		"email": "me@arupsaha.tech",
+		"url": "https://twitter.com/aforarup"
 	},
 	"main": "index.js",
 	"engines": {
@@ -22,9 +22,13 @@
 		"utils/*"
 	],
 	"keywords": [
-		"corona-cli",
-		"Ahmad Awais",
-		"ahmadawais"
+		"covid-cli",
+		"Covid India",
+		"Arup Saha",
+		"Arup",
+		"aforarup",
+		"covid19",
+		"corona India"
 	],
 	"scripts": {
 		"format": "prettier --write \"./**/*.{js,json}\"",

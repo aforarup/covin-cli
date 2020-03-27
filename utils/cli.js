@@ -11,7 +11,7 @@ module.exports = meow(
 
 	Commands
 	  ${cyan(`country-name`)}         Get data for a given country
-	  ${cyan(`states`)}               Get data for all USA states
+	  ${cyan(`tests`)}               Get data for Tests conducted across the country
 
 	Options
 	  ${yellow(`--xcolor`)}, ${yellow(`-x`)}         Single colored output

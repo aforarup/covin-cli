@@ -2,28 +2,32 @@ const axios = require('axios');
 const comma = require('comma-number');
 const to = require('await-to-js').default;
 const handleError = require('cli-handle-error');
+const chalk = require('chalk');
+const cyan = chalk.cyan;
+const yellow = chalk.yellow;
+const red = chalk.red;
+const green = chalk.green;
+const dim = chalk.dim;
+const Table = require('cli-table3');
+const {
+	style
+} = require('./table.js');
 
-module.exports = async (table, states) => {
-	const [err, all] = await to(axios.get(`https://corona.lmao.ninja/all`));
-	handleError(`API is down, try again later.`, err, false);
-	let data = Object.values(all.data);
-	data = data.map((d) => comma(d));
+module.exports = async () => {
+	const [err, response] = await to(axios.get(`https://corona.lmao.ninja/all`));
+	if (!err && response.data) {
+		let data = response.data
 
-	if (!states) {
+		const table = new Table({style, chars: {} })
 		table.push([
-			`—`,
-			`Worldwide`,
-			data[0],
-			`—`,
-			data[1],
-			`—`,
-			data[2],
-			`—`,
-			`—`,
-			`—`
+			cyan(`Worldwide`),
+			cyan(`${data.cases} ${dim(`(cases)`)}`),
+			red(`${data.deaths} ${dim(`(deaths)`)}`),
+			green(`${data.recovered} ${dim(`(recovered)`)}`),
+			yellow(`${data.active} ${dim(`(active)`)}`)
 		]);
+		console.log(table.toString())
 	}
-
-	const lastUpdated = Date(data[3]);
-	return lastUpdated;
+	
+	
 };
