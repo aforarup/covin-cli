@@ -7,48 +7,25 @@ const cyan = chalk.cyan;
 module.exports = meow(
 	`
 	Usage
-	  ${green(`corona`)} ${cyan(`<command>`)} ${yellow(`[--option]`)}
+	  ${green(`covid`)} ${cyan(`<command>`)} ${yellow(`[--option]`)}
 
 	Commands
-	  ${cyan(`country-name`)}         Get data for a given country
-	  ${cyan(`tests`)}               Get data for Tests conducted across the country
+	  ${cyan(`state-name`)}         Get data for a given state
+	  ${cyan(`tests`)}              Get data for Tests conducted across the country
 
 	Options
-	  ${yellow(`--xcolor`)}, ${yellow(`-x`)}         Single colored output
-	  ${yellow(`--sort`)}, ${yellow(`-s`)}           Sort data by type
-	  ${yellow(`--reverse`)}, ${yellow(`-r`)}        Reverse print order
 	  ${yellow(`--limit`)}, ${yellow(`-l`)}          Print only N entries
 
 	Examples
-	  ${green(`corona`)} ${cyan(`china`)}
-	  ${green(`corona`)} ${cyan(`states`)}
-	  ${green(`corona`)} ${yellow(`-x`)}
-	  ${green(`corona`)} ${yellow(`--sort`)} ${cyan(`cases-today`)}
-	  ${green(`corona`)} ${yellow(`-s`)} ${cyan(`critical`)}
+	  ${green(`covid`)} ${cyan(`delhi`)}
+	  ${green(`covid`)} ${cyan(`tests`)}
 
-	❯ You can also run command + option at once:
-	  ${green(`corona`)} ${cyan(`china`)} ${yellow(`-x`)} ${yellow(`-s cases`)}
 `,
 	{
 		booleanDefault: undefined,
 		hardRejection: false,
 		inferType: false,
 		flags: {
-			xcolor: {
-				type: 'boolean',
-				default: false,
-				alias: 'x'
-			},
-			sort: {
-				type: 'string',
-				default: 'cases',
-				alias: 's'
-			},
-			reverse: {
-				type: 'boolean',
-				default: false,
-				alias: 'r'
-			},
 			limit: {
 				type: 'number',
 				default: Number.MAX_SAFE_INTEGER,
