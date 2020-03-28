@@ -7,13 +7,15 @@ Track the Coronavirus disease (COVID-19) or the Novel Coronavirus Strain for Ind
 
 <br>
 
+This project is originally forked from [corona-cli](https://github.com/ahmadawais/corona-cli)
+
 # covin-cli
 
-- 🇮🇳 Get exhauustive Coronavirus disease (COVID-19) reporting for India
+- 🇮🇳 Get exhaustive Coronavirus disease (COVID-19) tracking for India
 - 🤯 Active daily reporting of your state's COVID-19 statistics
 - 🚀 Get district wise cases
 - 🗃️ Data: State, Cases, Deaths, Recovered, Active
-- 🧪 Daily testing samples data
+- 🧪 Daily testing coverage data
 
 <br>
 
