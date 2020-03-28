@@ -14,20 +14,20 @@ module.exports = async (spinner, table, states, { sortBy, limit, reverse }) => {
 			axios.get(`https://api.covid19india.org/data.json`)
 		);
 		handleError(`API is down, try again later.`, err, false);
-		let allStates = response.data.tested;
+		let allTests = response.data.tested;
 
 		// Limit.
-		allStates = allStates.slice(0, limit);
-		allStates.reverse();
+		allTests = allTests.slice(0, limit);
+		allTests.reverse();
 		// Push selected data.
-		allStates.map((oneState, count) => {
-			if(oneState.totalsamplestested) {
+		allTests.map((oneTest, count) => {
+			if(oneTest.totalsamplestested) {
 				table.push([
 					count + 1,
-					oneState.updatetimestamp,
-					comma(oneState.totalsamplestested),
-					comma(oneState.totalindividualstested),
-					comma(oneState.totalpositivecases)
+					oneTest.updatetimestamp,
+					comma(oneTest.totalsamplestested),
+					comma(oneTest.totalindividualstested),
+					comma(oneTest.totalpositivecases)
 					
 				]);
 			}
@@ -35,7 +35,6 @@ module.exports = async (spinner, table, states, { sortBy, limit, reverse }) => {
 
 		spinner.stopAndPersist();
 		const isRev = reverse ? `${dim(` & `)}${cyan(`Order`)}: reversed` : ``;
-		spinner.info(`${cyan(`Sorted by:`)} ${sortBy}${isRev}`);
 		console.log(table.toString());
 	}
 };

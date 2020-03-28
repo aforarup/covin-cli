@@ -65,8 +65,6 @@ module.exports = async (
 			
 
 			spinner.stopAndPersist();
-			// const isRev = reverse ? `${dim(` & `)}${cyan(`Order`)}: reversed` : ``;
-			// spinner.info(`${cyan(`Sorted by:`)} ${sortBy}${isRev}`);
 			console.log(table.toString());
 		}
 		return allStates;
