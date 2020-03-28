@@ -1,9 +1,9 @@
 {
 	"name": "covin-cli",
-	"version": "0.1.0",
+	"version": "1.0.0",
 	"description": "Track the Coronavirus disease (COVID-19) in India.",
 	"license": "MIT",
-	"repository": "aforarup/covid-cli",
+	"repository": "aforarup/covin-cli",
 	"author": {
 		"name": "Arup Saha",
 		"email": "me@arupsaha.tech",
@@ -23,7 +23,8 @@
 	],
 	"keywords": [
 		"covin-cli",
-		"Covin India",
+		"covin",
+		"Covid India",
 		"Arup Saha",
 		"Arup",
 		"aforarup",
@@ -42,6 +43,8 @@
 		"cli-table3": "^0.5.1",
 		"cli-welcome": "^1.4.0",
 		"comma-number": "^2.0.1",
+		"covin-cli": "^0.1.0",
+		"figures": "^3.2.0",
 		"lodash.orderby": "^4.6.0",
 		"log-symbols": "^3.0.0",
 		"meow": "^6.1.0",

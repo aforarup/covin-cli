@@ -3,7 +3,7 @@ const pkgJSON = require('./../package.json');
 const updateNotifier = require('update-notifier');
 
 module.exports = async () => {
-	welcome(`covid-cli`, `by Arup Saha\n${pkgJSON.description}`, {
+	welcome(`covin-cli`, `by Arup Saha\n${pkgJSON.description}`, {
 		bgColor: `#007C91`,
 		color: `#FFFFFF`,
 		bold: true,

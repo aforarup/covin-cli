@@ -7,7 +7,7 @@ Track the Coronavirus disease (COVID-19) or the Novel Coronavirus Strain for Ind
 
 <br>
 
-# covid-cli
+# covin-cli
 
 - 🇮🇳 Get exhauustive Coronavirus disease (COVID-19) reporting for India
 - 🤯 Active daily reporting of your state's COVID-19 statistics
@@ -22,10 +22,10 @@ Track the Coronavirus disease (COVID-19) or the Novel Coronavirus Strain for Ind
 
 ```sh
 # Install globally (recommended).
-npm install -g covid-cli
+npm install -g covin-cli
 
 # Or run directly with npx (installs CLI on every run).
-npx covid-cli
+npx covin-cli
 ```
 
 
@@ -35,8 +35,8 @@ npx covid-cli
 
 ```sh
 # Display data for all countries.
-covid
-
+covin
+```
 
 ### Single State
 

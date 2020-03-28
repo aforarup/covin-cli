@@ -7,7 +7,7 @@ const cyan = chalk.cyan;
 module.exports = meow(
 	`
 	Usage
-	  ${green(`covid`)} ${cyan(`<command>`)} ${yellow(`[--option]`)}
+	  ${green(`covin`)} ${cyan(`<command>`)} ${yellow(`[--option]`)}
 
 	Commands
 	  ${cyan(`state-name`)}         Get data for a given state
@@ -17,8 +17,8 @@ module.exports = meow(
 	  ${yellow(`--limit`)}, ${yellow(`-l`)}          Print only N entries
 
 	Examples
-	  ${green(`covid`)} ${cyan(`delhi`)}
-	  ${green(`covid`)} ${cyan(`tests`)}
+	  ${green(`covin`)} ${cyan(`delhi`)}
+	  ${green(`covin`)} ${cyan(`tests`)}
 
 `,
 	{
