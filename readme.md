@@ -42,36 +42,36 @@ covin
 
 ```sh
 # Display data for given state with districts.
-corona <countryName>
+covin <stateName>
 
 # Display data for given state i.e. Karnataka.
-corona karnataka
+covin karnataka
 
 # Display data for given union territory i.e. Ladakh.
-corona Ladakh
+covin Ladakh
 ```
 
-### Tests data
+### Samples tested till now
 
 ```sh
 # Display data for the tests being conducted.
-corona tests
+covin tests
 ```
 
 ### Limit the output
 
 ````sh
 # Print a limited number of entries to the output.
-corona --limit 10
-corona -l 10
+covin --limit 10
+covin -l 10
 ````
 
 #### CLI Help
 
 ```sh
 # Display the help data.
-corona help
-corona --help
+covin help
+covin --help
 ```
 
 ## License & Conduct

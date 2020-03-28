@@ -4,14 +4,13 @@ const cyan = chalk.cyan;
 const yellow = chalk.yellow;
 const red = chalk.red;
 const green = chalk.green;
-const blue = chalk.blue;
 const dim = chalk.dim;
 const comma = require('comma-number');
 const { sortingKeys } = require('./table.js');
 const to = require('await-to-js').default;
 const handleError = require('cli-handle-error');
 const orderBy = require('lodash.orderby');
-const getWorldwide = require('./getWorldwide.js');
+
 
 module.exports = async (
 	spinner,
@@ -33,7 +32,6 @@ module.exports = async (
 			let countrystats = allStates[0]
 
 			// Limit.
-			await getWorldwide(table)
 			allStates = allStates.slice(1, limit);
 
 			
@@ -54,10 +52,10 @@ module.exports = async (
 
 			// Push country overall data.
 			table.push([
-				blue('-'),
-				blue(countrystats.state),
-					blue(comma(countrystats.confirmed)),
-					blue(comma(countrystats.delta.confirmed)),
+				cyan('-'),
+				cyan(countrystats.state),
+					cyan(comma(countrystats.confirmed)),
+					cyan(comma(countrystats.delta.confirmed)),
 					red(comma(countrystats.deaths)),
 					red(comma(countrystats.delta.deaths)),
 					green(comma(countrystats.recovered)),
