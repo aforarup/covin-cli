@@ -1,6 +1,6 @@
 {
 	"name": "covin-cli",
-	"version": "1.0.0",
+	"version": "1.1.0",
 	"description": "Track the Coronavirus disease (COVID-19) in India.",
 	"license": "MIT",
 	"repository": "aforarup/covin-cli",
@@ -46,9 +46,8 @@
 		"covin-cli": "^0.1.0",
 		"figures": "^3.2.0",
 		"lodash.orderby": "^4.6.0",
-		"figures": "^3.2.0",
+		"log-symbols": "^3.0.0",
 		"meow": "^6.1.0",
-		"npm-ls": "^1.0.0",
 		"ora": "^4.0.3",
 		"update-notifier": "^4.1.0"
 	},
