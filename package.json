@@ -1,6 +1,6 @@
 {
 	"name": "covin-cli",
-	"version": "1.1.0",
+	"version": "2.0.0",
 	"description": "Track the Coronavirus disease (COVID-19) in India.",
 	"license": "MIT",
 	"repository": "aforarup/covin-cli",
@@ -36,6 +36,7 @@
 		"test": "node test.js"
 	},
 	"dependencies": {
+		"asciichart": "^1.5.15",
 		"await-to-js": "^2.1.1",
 		"axios": "^0.19.2",
 		"chalk": "^3.0.0",
@@ -43,7 +44,6 @@
 		"cli-table3": "^0.5.1",
 		"cli-welcome": "^1.4.0",
 		"comma-number": "^2.0.1",
-		"covin-cli": "^0.1.0",
 		"figures": "^3.2.0",
 		"lodash.orderby": "^4.6.0",
 		"log-symbols": "^3.0.0",

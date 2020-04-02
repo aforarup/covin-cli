@@ -15,14 +15,14 @@ const {
 	headDistricts
 } = require('./table.js');
 
-module.exports = async (spinner, table, tests, passesState, allStatesData) => {
-	if (passesState && !tests) {
-		const thisState = allStatesData.filter(state => state.state.split(" ")[0].toLowerCase() === passesState.split(" ")[0].toLowerCase())[0]
+module.exports = async (spinner, table, tests,  chart, passedState, allStatesData) => {
+	if (passedState && !tests && !chart) {
+		const thisState = allStatesData.filter(state => state.state.split(" ")[0].toLowerCase() === passedState.split(" ")[0].toLowerCase())[0]
 		if(thisState == undefined) {
 			spinner.stopAndPersist();
 			console.log(
 				`${red(
-					`${sym.error} Nops. A state named "${passesState}" does not exist…`
+					`${sym.error} Nops. A state named "${passedState}" does not exist…`
 				)}\n`
 			);
 			process.exit(0);
