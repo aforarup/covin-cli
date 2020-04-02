@@ -8,8 +8,8 @@ const to = require('await-to-js').default;
 const handleError = require('cli-handle-error');
 const orderBy = require('lodash.orderby');
 
-module.exports = async (spinner, table, states, { sortBy, limit, reverse }) => {
-	if (states) {
+module.exports = async (spinner, table, tests, { sortBy, limit, reverse }) => {
+	if (tests) {
 		const [err, response] = await to(
 			axios.get(`https://api.covid19india.org/data.json`)
 		);

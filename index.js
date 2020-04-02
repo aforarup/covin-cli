@@ -15,6 +15,7 @@ const init = require('./utils/init.js');
 const theEnd = require('./utils/theEnd.js');
 const handleError = require('cli-handle-error');
 const getTests = require('./utils/getTests.js');
+const getChart = require('./utils/getChart.js');
 const getState = require('./utils/getState.js');
 const getStates = require('./utils/getStates.js');
 const {
@@ -36,6 +37,7 @@ const options = { sortBy, limit, reverse, minimal };
 	const [input] = cli.input;
 	input === 'help' && (await cli.showHelp(0));
 	const tests = input === 'tests' ? true : false;
+	const chart = input === 'graph' ? true : false;
 	const state = input;
 
 	// Table
@@ -46,8 +48,9 @@ const options = { sortBy, limit, reverse, minimal };
 
 	// Display data.
 	spinner.start();
-	const allStatesData = await getStates(spinner, table, tests, state, options);
-	await getState(spinner, table, tests, state, allStatesData);
-	await getTests(spinner, table, tests, options);
+	const allStatesData = await getStates(spinner, table, tests, chart, state, options);
+	await getState(spinner, table, tests, chart, state, allStatesData);
+	await getChart(spinner, chart, options);
+	await getTests(spinner, table, tests, chart, options);
 	theEnd();
 })();
