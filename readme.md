@@ -12,6 +12,7 @@ This project is originally forked from [corona-cli](https://github.com/ahmadawai
 # covin-cli
 
 - 🇮🇳 Get exhaustive Coronavirus disease (COVID-19) tracking for India
+- 📈 Get data in graphical form. Keep a track on the `flattening the curve`
 - 🤯 Active daily reporting of your state's COVID-19 statistics
 - 🚀 Get district wise cases
 - 🗃️ Data: State, Cases, Deaths, Recovered, Active
@@ -51,6 +52,17 @@ covin karnataka
 
 # Display data for given union territory i.e. Ladakh.
 covin Ladakh
+```
+
+
+### Graph
+
+```sh
+# Display daily progress in graphical form
+covin graph
+
+# Limit graph to show last N days' progress
+covin graph -l N
 ```
 
 ### Samples tested till now
