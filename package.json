@@ -1,6 +1,6 @@
 {
 	"name": "covin-cli",
-	"version": "2.0.0",
+	"version": "2.0.1",
 	"description": "Track the Coronavirus disease (COVID-19) in India.",
 	"license": "MIT",
 	"repository": "aforarup/covin-cli",

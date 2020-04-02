@@ -16,10 +16,11 @@ module.exports = async (
 	spinner,
 	table,
 	tests,
+	chart,
 	stateName,
 	{ sortBy, limit, reverse }
 ) => {
-	if (!tests) {
+	if (!tests && !chart) {
 		const [err, response] = await to(
 			axios.get(`https://api.covid19india.org/data.json`)
 		);
