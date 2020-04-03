@@ -62,7 +62,7 @@ covin Ladakh
 covin graph
 
 # Limit graph to show last N days' progress
-covin graph -l N
+covin graph -l 20
 ```
 
 ### Samples tested till now
