@@ -37,7 +37,7 @@ npx covin-cli
 ### All States
 
 ```sh
-# Display data for all countries.
+# Display data for all states.
 covin
 ```
 
