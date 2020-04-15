@@ -26,7 +26,7 @@ module.exports = async (
 		);
 		handleError(`API is down, try again later.`, err, false);
 		let allStates = response.data.statewise;
-		if(!stateName) {
+		if (!stateName) {
 
 
 
@@ -35,16 +35,16 @@ module.exports = async (
 			// Limit.
 			allStates = allStates.slice(1, limit);
 
-			
+
 			// Push selected data.
 			allStates.map((oneState, count) => {
 				table.push([
 					count + 1,
 					oneState.state,
 					comma(oneState.confirmed),
-					comma(oneState.delta.confirmed),
+					comma(oneState.deltaconfirmed),
 					comma(oneState.deaths),
-					comma(oneState.delta.deaths),
+					comma(oneState.deltadeaths),
 					comma(oneState.recovered),
 					comma(oneState.active)
 				]);
@@ -55,15 +55,15 @@ module.exports = async (
 			table.push([
 				cyan('-'),
 				cyan(countrystats.state),
-					cyan(comma(countrystats.confirmed)),
-					cyan(comma(countrystats.delta.confirmed)),
-					red(comma(countrystats.deaths)),
-					red(comma(countrystats.delta.deaths)),
-					green(comma(countrystats.recovered)),
-					yellow(comma(countrystats.active))
+				cyan(comma(countrystats.confirmed)),
+				cyan(comma(countrystats.deltaconfirmed)),
+				red(comma(countrystats.deaths)),
+				red(comma(countrystats.deltadeaths)),
+				green(comma(countrystats.recovered)),
+				yellow(comma(countrystats.active))
 			]);
 
-			
+
 
 			spinner.stopAndPersist();
 			console.log(table.toString());
