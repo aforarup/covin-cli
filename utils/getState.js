@@ -15,10 +15,10 @@ const {
 	headDistricts
 } = require('./table.js');
 
-module.exports = async (spinner, table, tests,  chart, passedState, allStatesData) => {
+module.exports = async (spinner, table, tests, chart, passedState, allStatesData) => {
 	if (passedState && !tests && !chart) {
 		const thisState = allStatesData.filter(state => state.state.split(" ")[0].toLowerCase() === passedState.split(" ")[0].toLowerCase())[0]
-		if(thisState == undefined) {
+		if (thisState == undefined) {
 			spinner.stopAndPersist();
 			console.log(
 				`${red(
@@ -37,24 +37,24 @@ module.exports = async (spinner, table, tests,  chart, passedState, allStatesDat
 		table.push([
 			cyan('-'),
 			cyan(thisState.state),
-				cyan(comma(thisState.confirmed)),
-				cyan(comma(thisState.delta.confirmed)),
-				red(comma(thisState.deaths)),
-				red(comma(thisState.delta.deaths)),
-				green(comma(thisState.recovered)),
-				yellow(comma(thisState.active))
+			cyan(comma(thisState.confirmed)),
+			cyan(comma(thisState.deltaconfirmed)),
+			red(comma(thisState.deaths)),
+			red(comma(thisState.deltadeaths)),
+			green(comma(thisState.recovered)),
+			yellow(comma(thisState.active))
 		]);
 
-		const districtTable = new Table({head:headDistricts, style, chars: {} })
+		const districtTable = new Table({ head: headDistricts, style, chars: {} })
 
 		const stateWiseDistricts = response.data;
 
 		spinner.stopAndPersist();
 		console.log(table.toString());
 
-		if(stateWiseDistricts[thisState.state]) {
+		if (stateWiseDistricts[thisState.state]) {
 			const thisStatesDistrict = stateWiseDistricts[thisState.state]["districtData"];
-		
+
 			let count = 0
 			Object.keys(thisStatesDistrict).forEach(key => {
 				count += 1
@@ -65,10 +65,10 @@ module.exports = async (spinner, table, tests,  chart, passedState, allStatesDat
 					cyan(comma(value.confirmed))
 				]);
 			})
-	
-			
+
+
 			console.log(districtTable.toString());
 		}
-		
+
 	}
 };
